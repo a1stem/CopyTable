@@ -73,7 +73,7 @@ class ClipboardApp(QMainWindow):
 
     def _build_tray(self):
         self.tray = QSystemTrayIcon(self)
-        self.tray.setIcon(QIcon.fromTheme("edit-paste"))  # uses system icon
+        self.tray.setIcon(QIcon("copytable.svg"))  # uses custom icon
         self.tray.setToolTip("CopyTable")
 
         tray_menu = QMenu()
