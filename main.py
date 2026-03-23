@@ -15,6 +15,17 @@ class ClipboardApp(QMainWindow):
         self.history = []
         self.last_clip = ""
 
+        # Load icon once, use everywhere
+        import os
+        icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "copytable.svg")
+        self.app_icon = QIcon(icon_path)
+
+        # Taskbar + Alt-Tab + window decorations
+        self.setWindowIcon(self.app_icon)
+
+        # Set on the QApplication itself (covers Alt-Tab & taskbar)
+        QApplication.instance().setWindowIcon(self.app_icon)
+
         self._build_ui()
         self._build_tray()
 
@@ -73,7 +84,7 @@ class ClipboardApp(QMainWindow):
 
     def _build_tray(self):
         self.tray = QSystemTrayIcon(self)
-        self.tray.setIcon(QIcon("copytable.svg"))  # uses custom icon
+        self.tray.setIcon(self.app_icon)  # uses shared icon
         self.tray.setToolTip("CopyTable")
 
         tray_menu = QMenu()
