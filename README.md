@@ -29,6 +29,24 @@ sudo apt install python3-pyqt5
 python3 main.py
 ```
 
+## Running CopyTable - Best Practice from /OPT/ using run and deploy scripts
+
+Once deployed, you can launch CopyTable from any terminal with:
+```bash
+copytable
+```
+
+This runs the clipboard app directly without needing to navigate to the install directory.
+
+## Deployment
+
+To deploy or update CopyTable to `/opt/clipboard-app/`:
+```bash
+./deploy.sh
+```
+
+The deploy script copies all necessary files, excluding `.git`, `__pycache__`, and `*.pyc` files.
+
 ## Usage
 | Action | Result |
 |---|---|
